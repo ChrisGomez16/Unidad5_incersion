@@ -1,0 +1,57 @@
+public class Alumno 
+{
+    private String nombre;
+    private int n_control;
+    private double promedio;
+    private String carrera;
+
+    public Alumno(String nombre, int n_control, double promedio, String carrera) 
+    {
+        this.nombre = nombre;
+        this.n_control = n_control;
+        this.promedio = promedio;
+        this.carrera = carrera;
+    }
+    
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getN_control() {
+        return n_control;
+    }
+
+    public void setN_control(int n_control) {
+        this.n_control = n_control;
+    }
+
+    public double getPromedio() {
+        return promedio;
+    }
+
+    public void setPromedio(double promedio) {
+        this.promedio = promedio;
+    }
+
+    public String getCarrera() {
+        return carrera;
+    }
+
+    public void setCarrera(String carrera) {    
+        this.carrera = carrera;
+    }
+
+    @Override
+    public String toString() 
+    {
+        return "Alumno{" +
+                "nombre='" + nombre + '\'' +
+                ", n_control=" + n_control +
+                ", promedio=" + promedio +
+                ", carrera='" + carrera + '\'' +
+                '}';
+    }
