@@ -1,0 +1,29 @@
+ public static void main(String[] args) 
+    {
+        int Numeros[] = {12,54,55,33,76,97,10,8};
+        Insercion(Numeros);
+        for(int n: Numeros)
+            System.out.print(" " + n + " ");
+    }
+    
+    
+    //Cuando es estatico llama algo de la misma clase estatico
+    public static void Insercion(int m[])
+    {
+        int i, k, n_elementos = m.length;
+        int aux;
+        
+        for(i=1; i<n_elementos; i++) //Tamaño menos uno
+        {
+            aux= m[i];
+            k= (i-1);
+            
+            while(k>=0 && aux-m[k] >0)
+            {
+                m[k+1]=m[k];
+                k--;
+            }
+            
+            m[k+1]=aux;
+        }
+    }
