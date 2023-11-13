@@ -1,0 +1,43 @@
+public class IncersionAlumno
+{
+    public static void main(String[] args) 
+    {
+        Alumno alumno[] = 
+        {
+            new Alumno("Salvador", 22640158, 70, "ISC"),
+            new Alumno("Yahir", 22640155, 70, "ISC"),
+            new Alumno("Ivan", 22640177, 80, "ISC"),
+            new Alumno("Jesus", 22640112, 40, "TICS"),
+            new Alumno("Justin", 22640166, 87, "Bioquimica"),
+            new Alumno("Cris", 22640172, 81, "ISC"),
+            new Alumno("Dafne", 22640195, 40, "Administracion"),
+            new Alumno("Mariana", 22640111, 87, "Bioquimica")
+        };
+          
+    }
+    
+    public static void Incersion_A(int []array)
+    {
+        int i, k, n_elementos = array.length;
+        int aux;
+        
+        for(i=1; i<n_elementos; i++) //Tamaño menos uno
+        {
+            aux= array[i];
+            k= (i-1);
+            
+            while(k>=0 && aux-array[k] >0)
+            {
+                array[k+1]=array[k];
+                k--;
+            }
+            
+            array[k+1]=aux;
+        }
+    }
+    
+    public static void Incersion_A_Inversa()
+    {
+        
+    }
+}
