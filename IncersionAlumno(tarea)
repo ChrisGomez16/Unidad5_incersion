@@ -1,43 +1,100 @@
-public class IncersionAlumno
+/**
+ *
+ * @author Christopher
+ */
+public class IncersionAlumno 
 {
+    static final int NOMBRE = 0;
+    static final int N_CONTROL = 1;
+    static final int CALIFICACION = 2;
+    static final int CARRERA = 3;
+    
     public static void main(String[] args) 
     {
-        Alumno alumno[] = 
-        {
-            new Alumno("Salvador", 22640158, 70, "ISC"),
-            new Alumno("Yahir", 22640155, 70, "ISC"),
-            new Alumno("Ivan", 22640177, 80, "ISC"),
-            new Alumno("Jesus", 22640112, 40, "TICS"),
-            new Alumno("Justin", 22640166, 87, "Bioquimica"),
-            new Alumno("Cris", 22640172, 81, "ISC"),
-            new Alumno("Dafne", 22640195, 40, "Administracion"),
-            new Alumno("Mariana", 22640111, 87, "Bioquimica")
-        };
+        Alumno[] alumnos = new Alumno[8];
+        alumnos[0] = new Alumno("Salvador", 22640158, 70, "ISC");
+          alumnos[1] = new Alumno("Yahir", 22640155, 70, "ISC");
+          alumnos[2] = new Alumno("Ivan", 22640177, 80, "ISC");
+          alumnos[3] = new Alumno("Jesus", 22640112, 40, "TICS");
+          alumnos[4] = new Alumno("Justin", 22640166, 87, "Bioquimica");
+          alumnos[5] = new Alumno("Cris", 22640172, 81, "ISC");
+          alumnos[6] = new Alumno("Dafne", 22640195, 40, "Administracion");
+          alumnos[7] = new Alumno("Mariana", 22640111, 87, "Bioquimica");
+        
+        
+        
+        System.out.println("\n Nombre: ");
+        insercion(alumnos, NOMBRE, false);
+        imprimir(alumnos);
+        System.out.println("\n Numero de control: ");
+        insercion(alumnos, N_CONTROL, false);
+        imprimir(alumnos);
+        System.out.println("\n Calificacion");
+        insercion(alumnos, CALIFICACION, false);
+        imprimir(alumnos);
+        System.out.println("\n Carrera");
+        insercion(alumnos, CARRERA, false);
+        imprimir(alumnos);
+
+        System.out.println("\n Nombre Inverso");
+        insercion(alumnos, NOMBRE, true);
+        imprimir(alumnos);
+        System.out.println("\n Numero de control inverso");
+        insercion(alumnos, N_CONTROL, true);
+        imprimir(alumnos);
+        System.out.println("\n Calificacion Inverso");
+        insercion(alumnos, CALIFICACION, true);
+        imprimir(alumnos);
+        System.out.println("\n Carrera Inverso");
+        insercion(alumnos, CARRERA, true);
+        imprimir(alumnos);
+        
           
     }
     
-    public static void Incersion_A(int []array)
-    {
+     public static void insercion(Alumno []array,int campo, boolean inverso) 
+     {
         int i, k, n_elementos = array.length;
-        int aux;
-        
-        for(i=1; i<n_elementos; i++) //Tamaño menos uno
+        Alumno aux;
+        for(i=1; i<n_elementos; i++)
         {
             aux= array[i];
             k= (i-1);
-            
-            while(k>=0 && aux-array[k] >0)
+
+            while(k>=0 && comparator(array, k,aux, campo, inverso))
             {
                 array[k+1]=array[k];
                 k--;
             }
-            
             array[k+1]=aux;
         }
     }
-    
-    public static void Incersion_A_Inversa()
+
+    public static boolean comparator(Alumno alumnos[], int k, Alumno aux, int b,boolean inverse) {
+        boolean comparar = false;
+        switch(b) 
+        {
+        case NOMBRE:
+            comparar = alumnos[k].getNombre().compareTo(aux.getNombre())>0;
+            break;
+        case CARRERA:
+            comparar = alumnos[k].getCarrera().compareTo(aux.getCarrera())>0;
+            break;
+        case N_CONTROL:
+            comparar = alumnos[k].getN_control()> aux.getN_control();
+            break;
+        case CALIFICACION:
+            comparar = alumnos[k].getN_control()> aux.getN_control();
+            break;
+        }
+        return inverse? !comparar : comparar;
+    }
+
+    public static void imprimir(Alumno[] a) 
     {
-        
+        for(Alumno obj:a ) {
+            System.out.println(obj.toString());
+        }
     }
 }
+
